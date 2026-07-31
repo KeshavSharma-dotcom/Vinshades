@@ -7,21 +7,7 @@ export default function Home() {
     return (
         <div className="home">
             <div className="background-effects">
-                <div className="flames">
-
-                    {[...Array(20)].map((_, i) =>
-
-                        <span
-                            key={i}
-                            style={{
-                                left: `${i * 5}%`,
-                                animationDelay: `-${i * .35}s`
-                            }}
-                        />
-
-                    )}
-
-                </div>
+                <div className="flames"></div>
                 <div className="embers"></div>
                 <div className="fog"></div>
             </div>
