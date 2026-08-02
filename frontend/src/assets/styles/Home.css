@@ -1,34 +1,25 @@
 /*=============================
             FONTS
 ==============================*/
-
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap");
 
 /*=============================
             VARIABLES
 ==============================*/
-
 :root {
-
     --bg: #06040a;
     --bg2: #120717;
-
     --wine: #7f2fff;
     --wine-dark: #4d148b;
-
     --light: #c27bff;
     --white: #ffffff;
-
     --glass: rgba(255, 255, 255, .05);
-
     --border: rgba(255, 255, 255, .08);
-
 }
 
 /*=============================
           RESET
 ==============================*/
-
 * {
     margin: 0;
     padding: 0;
@@ -50,38 +41,21 @@ button {
 /*=============================
             HOME
 ==============================*/
-
 .home {
-
     position: relative;
-
     width: 100%;
-
     min-height: 100vh;
-
     overflow: hidden;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    background:
-        radial-gradient(circle at top, #220638 0%, #0b0714 45%, #050407 100%);
-
+    background: radial-gradient(circle at top, #220638 0%, #0b0714 45%, #050407 100%);
 }
 
-/* Animated Section */
-
 .background-effects {
-
     position: absolute;
-
     inset: 0;
-
     overflow: hidden;
-
 }
 
 /*=============================
@@ -89,65 +63,39 @@ button {
 ==============================*/
 
 .gradient {
-
     position: absolute;
-
     inset: -30%;
-
     background:
-
         radial-gradient(circle, #8427ff44 0%, transparent 60%),
-
         radial-gradient(circle, #40106366 0%, transparent 65%),
-
         radial-gradient(circle, #8d35ff22 0%, transparent 60%);
-
     filter: blur(120px);
-
     animation: gradientMove 16s linear infinite alternate;
-
 }
 
 @keyframes gradientMove {
-
     from {
-
         transform: translate(-8%, -5%) scale(1);
-
     }
 
     to {
-
         transform: translate(8%, 5%) scale(1.15);
-
     }
-
 }
 
-/* Fog Section */
-
 .fog {
-
     position: absolute;
-
     inset: 0;
-
     opacity: .35;
-
     background:
-
         repeating-radial-gradient(circle at 50% 120%,
             rgba(165, 91, 255, .08) 0px,
             transparent 220px);
-
     animation: fogMove 20s linear infinite;
-
 }
 
 @keyframes fogMove {
-
     from {
-
         transform: translateX(-4%);
     }
 
@@ -156,356 +104,214 @@ button {
     }
 }
 
-/* Flames Section */
-
 .flames {
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 100%;
-
-    height: 260px;
-
-    overflow: hidden;
-
+    background:
+        radial-gradient(circle at 15% 100%, rgba(150, 80, 255, .35), transparent 38%),
+        radial-gradient(circle at 35% 100%, rgba(120, 40, 255, .32), transparent 40%),
+        radial-gradient(circle at 55% 100%, rgba(175, 110, 255, .34), transparent 38%),
+        radial-gradient(circle at 75% 100%, rgba(110, 30, 255, .32), transparent 40%),
+        radial-gradient(circle at 92% 100%, rgba(170, 90, 255, .34), transparent 38%);
+    filter: blur(70px);
+    animation: auraMove 7s ease-in-out infinite alternate;
 }
 
+@keyframes auraMove {
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(-18px);
+    }
+}
 
 .flames::before {
-
-    bottom: -180px;
-
-    height: 420px;
-
     background:
+        radial-gradient(ellipse at 5% 100%, #b45dff 0%, transparent 38%),
+        radial-gradient(ellipse at 18% 100%, #7d2dff 0%, transparent 32%),
+        radial-gradient(ellipse at 33% 100%, #ca8dff 0%, transparent 35%),
+        radial-gradient(ellipse at 48% 100%, #8f39ff 0%, transparent 32%),
+        radial-gradient(ellipse at 63% 100%, #b96dff 0%, transparent 35%),
+        radial-gradient(ellipse at 78% 100%, #7d2dff 0%, transparent 32%),
+        radial-gradient(ellipse at 94% 100%, #c47eff 0%, transparent 36%);
+    filter: blur(24px);
+    animation: livingFlames 3.5s ease-in-out infinite;
+}
 
-        radial-gradient(circle, #a33dff 0%, transparent 62%),
+@keyframes livingFlames {
+    0% {
+        transform:
+            translateY(0) scaleY(.92);
+    }
 
-        radial-gradient(circle at 20% 100%, #7c2cff 0%, transparent 50%),
+    25% {
+        transform:
+            translateY(-16px) scaleY(1.08);
+    }
 
-        radial-gradient(circle at 50% 100%, #8d35ff 0%, transparent 48%),
+    50% {
+        transform:
+            translateY(-28px) scaleY(1.18);
+    }
 
-        radial-gradient(circle at 80% 100%, #7420ff 0%, transparent 52%);
+    75% {
+        transform:
+            translateY(-12px) scaleY(1.02);
+    }
 
-    animation: flameOne 6s ease-in-out infinite alternate;
-
+    100% {
+        transform:
+            translateY(0) scaleY(.92);
+    }
 }
 
 .flames::after {
-
-    bottom: -220px;
-
-    height: 520px;
-
     background:
-
-        radial-gradient(circle, #5110b8 0%, transparent 70%),
-
-        radial-gradient(circle at 30% 100%, #6d26d8 0%, transparent 60%),
-
-        radial-gradient(circle at 70% 100%, #5b18cf 0%, transparent 62%);
-
-    opacity: .7;
-
-    animation: flameTwo 8s ease-in-out infinite alternate;
-
+        radial-gradient(circle at 12% 100%, rgba(255, 255, 255, .28), transparent 16%),
+        radial-gradient(circle at 31% 100%, rgba(235, 185, 255, .30), transparent 15%),
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, .26), transparent 16%),
+        radial-gradient(circle at 69% 100%, rgba(235, 185, 255, .30), transparent 15%),
+        radial-gradient(circle at 88% 100%, rgba(255, 255, 255, .26), transparent 16%);
+    filter: blur(8px);
+    mix-blend-mode: screen;
+    animation: corePulse 1s ease-in-out infinite;
 }
 
-@keyframes flameOne {
-
-    from {
-
-        transform: translateY(35px);
-
+@keyframes corePulse {
+    50% {
+        opacity: .45;
+        transform: translateY(-10px);
     }
-
-    to {
-
-        transform: translateY(-20px) scale(1.08);
-
-    }
-
 }
-
-@keyframes flameTwo {
-
-    from {
-
-        transform: translateY(0);
-
-    }
-
-    to {
-
-        transform: translateY(-45px) scale(1.12);
-
-    }
-
-}
-
-/* Embers */
 
 .embers {
-
     position: absolute;
-
     inset: 0;
-
+    overflow: hidden;
 }
 
 .embers::before {
-
     content: "";
-
     position: absolute;
-
-    inset: 0;
-
+    inset: -25%;
     background-image:
-
-        radial-gradient(circle, #b55fff 2px, transparent 3px),
-
-        radial-gradient(circle, #ffffff 1px, transparent 2px),
-
-        radial-gradient(circle, #d28dff 2px, transparent 3px);
+        radial-gradient(circle, #ffffff 2px, transparent 3px),
+        radial-gradient(circle, #c87cff 3px, transparent 5px),
+        radial-gradient(circle, #ffffff 2px, transparent 3px),
+        radial-gradient(circle, #9d4dff 4px, transparent 6px),
+        radial-gradient(circle, #ffffff 2px, transparent 3px),
+        radial-gradient(circle, #dca5ff 4px, transparent 6px),
+        radial-gradient(circle, #ffffff 2px, transparent 3px),
+        radial-gradient(circle, #b45dff 5px, transparent 7px);
 
     background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px,
+        340px 340px,
+        430px 430px,
+        560px 560px,
+        700px 700px,
+        900px 900px;
 
-        170px 170px,
+    opacity: .65;
 
-        230px 230px,
-
-        280px 280px;
-
-    opacity: .35;
+    filter:
+        drop-shadow(0 0 6px rgba(181, 95, 255, .8)) drop-shadow(0 0 16px rgba(125, 45, 255, .4));
 
     animation:
-
-        embersMove 35s linear infinite,
-
-        twinkle 2.5s ease-in-out infinite alternate;
-
+        emberRise 30s linear infinite,
+        emberTwinkle 4s ease-in-out infinite;
 }
 
-@keyframes embersMove {
-    from {
-        transform: translateY(20%);
-    }
-
-    to {
-        transform: translateY(-35%);
-    }
-}
-
-@keyframes twinkle {
-
+@keyframes emberRise {
     0% {
+        transform:
+            translateY(90%) translateX(-3%);
+    }
 
-        opacity: .2;
-
-        filter: brightness(.8);
-
+    25% {
+        transform:
+            translateY(45%) translateX(-2%);
     }
 
     50% {
+        transform:
+            translateY(0%) translateX(-2%);
+    }
 
-        opacity: 1;
-
-        filter: brightness(2);
-
+    75% {
+        transform:
+            translateY(-45%) translateX(-3%);
     }
 
     100% {
-
-        opacity: .3;
-
-        filter: brightness(1);
-
+        transform:
+            translateY(-90%) translateX(-3%);
     }
-
 }
 
-@keyframes embers {
+@keyframes emberTwinkle {
 
-    from {
-
-        transform: translateY(30%);
-
+    0%,
+    100% {
+        opacity: .35;
+        filter:
+            brightness(.9) drop-shadow(0 0 6px rgba(181, 95, 255, .6));
     }
 
-    to {
-        transform: translateY(-35%);
-
+    50% {
+        opacity: .9;
+        filter:
+            brightness(2) drop-shadow(0 0 14px rgba(181, 95, 255, 1)) drop-shadow(0 0 28px rgba(125, 45, 255, .8));
     }
-
 }
 
-/* Content Section */
+@keyframes emberTwinkle {
+
+    0%,
+    100% {
+        opacity: .25;
+        filter: brightness(.8);
+    }
+
+    50% {
+        opacity: .8;
+        filter: brightness(1.8);
+    }
+}
 
 .home-overlay {
-
     position: relative;
-
     z-index: 5;
-
     width: min(1200px, 90%);
-
     text-align: center;
-
 }
 
 .home-title {
-
     font-family: "Cinzel", serif;
-
     font-size: clamp(4rem, 9vw, 8rem);
-
     letter-spacing: 10px;
-
     color: white;
-
     text-shadow:
-
         0 0 15px #7e2dff,
-
         0 0 35px #7e2dff,
-
         0 0 65px #7e2dff;
-
-    animation: titleFloat 5s ease-in-out infinite;
-
+    animation: titleGlow 3s ease-in-out infinite;
 }
 
-.home-title::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 50%;
-
-    width: 620px;
-
-    height: 620px;
-
-    transform: translate(-50%, -50%);
-
-    background:
-
-        radial-gradient(circle,
-            rgba(125, 40, 255, .22),
-            transparent 70%);
-
-    filter: blur(70px);
-
-    z-index: -1;
-
-    animation: titleAura 8s ease-in-out infinite;
-
-}
-
-@keyframes titleAura {
-
+@keyframes titleGlow {
     50% {
-
-        transform: translate(-50%, -50%) scale(1.2);
-
+        text-shadow:
+            0 0 25px #8d42ff,
+            0 0 60px #8d42ff,
+            0 0 110px #8d42ff;
     }
-
-}
-
-@keyframes titleFloat {
-
-    0% {
-
-        transform: translateY(0);
-
-    }
-
-    50% {
-
-        transform: translateY(-8px);
-
-    }
-
-    100% {
-
-        transform: translateY(0);
-
-    }
-
 }
 
 .home-subtitle {
-
     margin-top: 18px;
-
     font-size: 1.1rem;
-
     color: #d3c5ff;
-
     letter-spacing: 2px;
-
-}
-
-/* Aurora Light Section */
-
-.home::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        radial-gradient(circle,
-            transparent 45%,
-            rgba(40, 108, 216, 0.45) 100%);
-
-    pointer-events: none;
-
-}
-
-.home::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        radial-gradient(circle at 50% 30%,
-            rgba(140, 60, 255, .18),
-            transparent 55%);
-
-    animation: aurora 10s ease-in-out infinite alternate;
-
-    pointer-events: none;
-
-}
-
-@keyframes aurora {
-
-    from {
-
-        transform: scale(1);
-
-    }
-
-    to {
-
-        transform: scale(1.15);
-
-    }
-
 }

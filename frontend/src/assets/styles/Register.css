@@ -1,0 +1,643 @@
+/*=============================
+            FONTS
+==============================*/
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap");
+
+/*=============================
+            VARIABLES
+==============================*/
+:root {
+    --bg: #06040a;
+    --bg2: #120717;
+    --primary: #8b3dff;
+    --primary-light: #b77cff;
+    --primary-dark: #4d148b;
+    --white: #ffffff;
+    --text: #e7dfff;
+    --glass: rgba(255, 255, 255, .06);
+    --glass-hover: rgba(255, 255, 255, .09);
+    --border: rgba(255, 255, 255, .12);
+    --success: #3ddc97;
+    --error: #ff5d7a;
+    --warning: #ffc857;
+    --shadow: 0 20px 60px rgba(0, 0, 0, .45);
+}
+
+/*=============================
+            RESET
+==============================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+input {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*=============================
+        REGISTER PAGE
+==============================*/
+
+.register-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, #220638 0%, #0b0714 45%, #050407 100%);
+}
+
+/*=============================
+      BACKGROUND EFFECTS
+==============================*/
+
+.background-effects {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.gradient {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(circle, #8427ff44 0%, transparent 60%),
+        radial-gradient(circle, #40106366 0%, transparent 65%),
+        radial-gradient(circle, #8d35ff22 0%, transparent 60%);
+    filter: blur(120px);
+    animation: gradientMove 18s linear infinite alternate;
+}
+
+@keyframes gradientMove {
+    from {
+        transform: translate(-8%, -5%) scale(1);
+    }
+
+    to {
+        transform: translate(8%, 5%) scale(1.15);
+    }
+}
+
+.fog {
+    position: absolute;
+    inset: 0;
+    opacity: .3;
+    background:
+        repeating-radial-gradient(circle at 50% 120%,
+            rgba(165, 91, 255, .08) 0px,
+            transparent 220px);
+    animation: fogMove 18s linear infinite;
+}
+
+@keyframes fogMove {
+    from {
+        transform: translateX(-4%);
+    }
+
+    to {
+        transform: translateX(4%);
+    }
+}
+
+.flames {
+    position: absolute;
+    left: 0;
+    bottom: -150px;
+    width: 100%;
+    height: 420px;
+    background:
+        radial-gradient(circle at 10% 100%, #862cff 0%, transparent 45%),
+        radial-gradient(circle at 25% 100%, #5d19cb 0%, transparent 40%),
+        radial-gradient(circle at 45% 100%, #983cff 0%, transparent 43%),
+        radial-gradient(circle at 65% 100%, #5d1cff 0%, transparent 42%),
+        radial-gradient(circle at 85% 100%, #963cff 0%, transparent 45%);
+    filter: blur(45px);
+    animation: flames 4s ease-in-out infinite alternate;
+}
+
+@keyframes flames {
+    from {
+        transform: translateY(20px) scaleY(.95);
+        opacity: .8;
+    }
+
+    to {
+        transform: translateY(-20px) scaleY(1.1);
+        opacity: 1;
+    }
+}
+
+.embers {
+    position: absolute;
+    inset: 0;
+}
+
+.embers::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, #b55fff 2px, transparent 3px),
+        radial-gradient(circle, #ffffff 1px, transparent 2px),
+        radial-gradient(circle, #d28dff 2px, transparent 3px);
+    background-size:
+        170px 170px,
+        230px 230px,
+        280px 280px;
+    opacity: .55;
+    animation: embers 30s linear infinite;
+}
+
+@keyframes embers {
+    from {
+        transform: translateY(90%);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+/*=============================
+      REGISTER CONTAINER
+==============================*/
+
+.register-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 24px 60px;
+}
+
+/*=============================
+        REGISTER CARD
+==============================*/
+
+.register-card {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    padding: 40px;
+    border-radius: 28px;
+    background: var(--glass);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--border);
+    box-shadow:
+        var(--shadow),
+        0 0 40px rgba(139, 61, 255, .15);
+    overflow: hidden;
+    animation: cardReveal .9s ease;
+}
+
+.register-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, .18),
+            transparent 30%,
+            transparent 70%,
+            rgba(139, 61, 255, .35));
+    opacity: .6;
+    pointer-events: none;
+}
+
+.register-card::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    left: 50%;
+    top: -160px;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(circle,
+            rgba(139, 61, 255, .35),
+            transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: cardGlow 6s ease-in-out infinite;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cardGlow {
+    50% {
+        transform: translateX(-50%) scale(1.15);
+    }
+}
+
+/*=============================
+        REGISTER HEADER
+==============================*/
+
+.register-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 32px;
+    z-index: 2;
+}
+
+.register-title {
+    font-family: "Cinzel", serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-shadow:
+        0 0 10px rgba(139, 61, 255, .8),
+        0 0 30px rgba(139, 61, 255, .6),
+        0 0 60px rgba(139, 61, 255, .35);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.register-subtitle {
+    margin-top: 12px;
+    color: #d7cfff;
+    font-size: .96rem;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+
+@keyframes titleGlow {
+    50% {
+        text-shadow:
+            0 0 18px rgba(139, 61, 255, 1),
+            0 0 42px rgba(139, 61, 255, .7),
+            0 0 90px rgba(139, 61, 255, .4);
+    }
+}
+
+/*=============================
+        STATUS BADGE
+==============================*/
+
+.status-badge {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    border-radius: 16px;
+    font-size: .92rem;
+    font-weight: 600;
+    letter-spacing: .6px;
+    backdrop-filter: blur(12px);
+    animation: statusDrop .45s ease;
+    overflow: hidden;
+}
+
+.status-badge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+}
+
+.status-success {
+    border: 1px solid rgba(61, 220, 151, .35);
+    color: #8df5c5;
+    background: rgba(61, 220, 151, .08);
+}
+
+.status-success::before {
+    background: radial-gradient(circle, #3ddc97, transparent 75%);
+}
+
+.status-error {
+    border: 1px solid rgba(255, 93, 122, .35);
+    color: #ffb3c1;
+    background: rgba(255, 93, 122, .08);
+}
+
+.status-error::before {
+    background: radial-gradient(circle, #ff5d7a, transparent 75%);
+}
+
+.status-warning {
+    border: 1px solid rgba(255, 200, 87, .35);
+    color: #ffe4a3;
+    background: rgba(255, 200, 87, .08);
+}
+
+.status-warning::before {
+    background: radial-gradient(circle, #ffc857, transparent 75%);
+}
+
+.status-badge span {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes statusDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*=============================
+        GOOGLE AUTH
+==============================*/
+
+.google-auth-box {
+    position: relative;
+    margin-bottom: 34px;
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .08);
+    transition: .35s;
+}
+
+.google-auth-box:hover {
+    transform: translateY(-3px);
+    border-color: rgba(139, 61, 255, .35);
+    box-shadow:
+        0 0 30px rgba(139, 61, 255, .12);
+}
+
+.google-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+}
+
+/*=============================
+            DIVIDER
+==============================*/
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 34px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .08);
+}
+
+.divider-line::after {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(139, 61, 255, .9),
+            transparent);
+    animation: dividerGlow 3.5s linear infinite;
+}
+
+.divider-text {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #baa8f8;
+    white-space: nowrap;
+}
+
+@keyframes dividerGlow {
+    to {
+        left: 100%;
+    }
+}
+
+/*=============================
+            FORM
+==============================*/
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-label {
+    color: #e6dcff;
+    font-size: .92rem;
+    font-weight: 500;
+    letter-spacing: .8px;
+    padding-left: 4px;
+}
+
+/*=============================
+            INPUTS
+==============================*/
+
+.form-input {
+    width: 100%;
+    height: 58px;
+    padding: 0 20px;
+    border-radius: 16px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(18px);
+    color: var(--white);
+    font-size: 1rem;
+    transition:
+        border-color .35s,
+        transform .35s,
+        box-shadow .35s,
+        background .35s;
+}
+
+.form-input::placeholder {
+    color: #9d91bf;
+}
+
+.form-input:hover {
+    border-color: rgba(139, 61, 255, .35);
+    background: rgba(255, 255, 255, .07);
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, .08);
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 3px rgba(139, 61, 255, .15),
+        0 0 24px rgba(139, 61, 255, .18);
+}
+
+.text-center {
+    text-align: center;
+    letter-spacing: 6px;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+/*=============================
+        PRIMARY BUTTON
+==============================*/
+
+.submit-btn {
+    position: relative;
+    width: 100%;
+    height: 58px;
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg,
+            #6d1dff,
+            #9a4dff,
+            #6d1dff);
+    background-size: 220% 220%;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition:
+        transform .35s,
+        box-shadow .35s;
+    animation: buttonGradient 6s linear infinite;
+}
+
+.submit-btn span {
+    position: relative;
+    z-index: 3;
+}
+
+.submit-btn::before {
+    content: "";
+    position: absolute;
+    left: -120%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background:
+        linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .45),
+            transparent);
+    transition: left .7s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 40px rgba(139, 61, 255, .45),
+        0 0 25px rgba(139, 61, 255, .3);
+}
+
+.submit-btn:hover::before {
+    left: 150%;
+}
+
+.submit-btn:active {
+    transform: scale(.98);
+}
+
+.submit-btn:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+    transform: none;
+    box-shadow: none;
+}
+
+/*=============================
+        BACK BUTTON
+==============================*/
+
+.back-btn {
+    width: 100%;
+    height: 54px;
+    border-radius: 16px;
+    margin-top: -6px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .1);
+    color: #d8c8ff;
+    transition:
+        border-color .35s,
+        background .35s,
+        transform .35s;
+}
+
+.back-btn span {
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.back-btn:hover {
+    border-color: rgba(139, 61, 255, .45);
+    background: rgba(139, 61, 255, .08);
+    transform: translateY(-2px);
+}
+
+.back-btn:active {
+    transform: scale(.98);
+}
+
+/*=============================
+        BUTTON ANIMATION
+==============================*/
+
+@keyframes buttonGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
