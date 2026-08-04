@@ -198,11 +198,11 @@ button {
         radial-gradient(circle, #ffffff 2px, transparent 3px),
         radial-gradient(circle, #c87cff 3px, transparent 5px),
         radial-gradient(circle, #ffffff 2px, transparent 3px),
-        radial-gradient(circle, #9d4dff 4px, transparent 6px),
+        radial-gradient(circle, #9d4dff 4px, transparent 1px),
         radial-gradient(circle, #ffffff 2px, transparent 3px),
-        radial-gradient(circle, #dca5ff 4px, transparent 6px),
+        radial-gradient(circle, #dca5ff 4px, transparent 4px),
         radial-gradient(circle, #ffffff 2px, transparent 3px),
-        radial-gradient(circle, #b45dff 5px, transparent 7px);
+        radial-gradient(circle, #b45dff 5px, transparent 2px);
 
     background-size:
         120px 120px,

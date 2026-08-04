@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
 import NavBar from '../components/NavBar.jsx'
-import '../assets/styles/Login.css'
+import '../assets/styles/Register.css'
 
 export default function Login() {
     const navigate = useNavigate()
@@ -90,7 +90,7 @@ export default function Login() {
     }
 
     return (
-        <div className="login-page">
+        <div className="register-page">
             <NavBar />
             <div className="background-effects">
                 <div className="gradient"></div>
@@ -99,11 +99,11 @@ export default function Login() {
                 <div className="embers"></div>
             </div>
 
-            <div className="login-container">
-                <div className="login-card">
-                    <div className="login-header">
-                        <h2 className="login-title">Welcome Back</h2>
-                        <p className="login-subtitle">Sign in to access your account</p>
+            <div className="register-container">
+                <div className="register-card">
+                    <div className="register-header">
+                        <h2 className="register-title">Welcome Back</h2>
+                        <p className="register-subtitle">Sign in to access your account</p>
                     </div>
 
                     {status.text && (
@@ -112,7 +112,6 @@ export default function Login() {
                         </div>
                     )}
 
-                    {/* Google OAuth Container */}
                     <div className="google-auth-box">
                         <div id="googleBtnWrapper" className="google-btn-container"></div>
                     </div>
@@ -123,7 +122,6 @@ export default function Login() {
                         <span className="divider-line"></span>
                     </div>
 
-                    {/* Email / OTP Login Flow */}
                     {step === 'EMAIL' ? (
                         <form onSubmit={handleRequestOtp} className="auth-form">
                             <div className="form-group">
@@ -164,7 +162,7 @@ export default function Login() {
                         </form>
                     )}
 
-                    <div className="login-footer">
+                    <div className="register-footer">
                         <p className="footer-text">Don't have an account? <Link to="/register" className="footer-link">Register here</Link></p>
                     </div>
                 </div>
