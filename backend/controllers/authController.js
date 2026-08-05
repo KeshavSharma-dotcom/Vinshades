@@ -39,7 +39,7 @@ const googleAuth = async (req, res) => {
 
     if (!user) {
         const generatedUsername = name ? name.replace(/\s+/g, '').substring(0, 8) : 'user' + Math.floor(100 + Math.random() * 900)
-        
+
         user = await User.create({
             email,
             name: generatedUsername,

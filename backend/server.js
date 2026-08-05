@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 
+const mongoSanitize = require('./middlewares/sanitize.js')
 const routes = require('./routes/routes')
 
 const app = express()
@@ -22,6 +23,8 @@ app.use(
     })
 )
 
+app.use(mongoSanitize)
+
 const globalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
@@ -29,7 +32,6 @@ const globalLimiter = rateLimit({
     legacyHeaders: false,
     message: { message: 'Too many requests, please try again later.' }
 })
-
 app.use(globalLimiter)
 
 app.get('/health', (req, res) => {
@@ -44,7 +46,6 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) => {
     console.error('Unhandled Server Error:', err)
-
     const statusCode = err.statusCode || 500
     const message = err.message || 'Internal Server Error'
 
